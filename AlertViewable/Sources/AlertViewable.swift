@@ -18,8 +18,7 @@ public protocol AlertViewable {
 public extension AlertViewable {
     
     func show(message: String, state: DropState) {
-        Drop.down(message,
-                  state: state)
+        Drop.down(message, state: state)
     }
     
 }
