@@ -11,13 +11,13 @@ import SwiftyDrop
 
 public protocol AlertViewable {
     
-    func show(message: String, state: DropState)
+    func show(message: String, for state: DropState)
     
 }
 
 public extension AlertViewable {
     
-    func show(message: String, state: DropState) {
+    func show(message: String, for state: DropState) {
         Drop.down(message, state: state)
     }
     
