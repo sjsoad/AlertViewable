@@ -6,19 +6,22 @@
 //  Copyright © 2017 grossum solutions. All rights reserved.
 //
 
-import Foundation
-import SwiftyDrop
+import UIKit
 
 public protocol AlertViewable {
     
-    func show(message: String, for state: DropState)
+    func show(message: String, dismissAfter time: TimeInterval)
     
 }
 
-public extension AlertViewable {
+public extension AlertViewable where Self: UIViewController {
     
-    func show(message: String, for state: DropState) {
-        Drop.down(message, state: state)
+    func show(message: String, dismissAfter time: TimeInterval = 3) {
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+            alert.dismiss(animated: true, completion: nil)
+        })
     }
     
 }

@@ -30,7 +30,4 @@ s.framework = "Foundation"
 # 8
 s.source_files = "AlertViewable/**/*.{swift}"
 
-#10
-s.dependency 'SwiftyDrop'
-
 end
